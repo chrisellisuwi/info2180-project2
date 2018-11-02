@@ -4,7 +4,7 @@ window.onload= function(){
     puzzleArea.style.gridTemplateColumns = "repeat(4,auto)";
     let puzzlePiece = puzzleArea.children;
     pieceSet();
-    console.log(isMovable(puzzlePiece[9]));
+    //console.log(isMovable(puzzlePiece[9]));
     function pieceSet (){
         let i = 0;
         for (let y = 0; y < 4; y++){
@@ -40,28 +40,25 @@ window.onload= function(){
             let empty = findEmpty();
             let xEmp = parseInt(empty[3]);
             let yEmp = parseInt(empty[5]);
-            this.style.gridRow = `${xEmp + 1} / span 1`;
-            this.style.gridColumn = `${yEmp + 1} / span 1`;
+            this.style.gridRow = `${yEmp + 1} / span 1`;
+            this.style.gridColumn = `${xEmp + 1} / span 1`;
             this.setAttribute("id", "xy(" + xEmp + "," + yEmp + ")" );
         }
     }
     
     function isMovable (piece){
         let coo = $( piece ).attr('id');
-        console.log(coo);
         let xCo = parseInt(coo[3]);
-        console.log(xCo);
         let yCo = parseInt(coo[5]);
-        console.log(yCo);
         let upID = document.getElementById(`xy(${xCo},${yCo-1})`);
         let downID = document.getElementById(`xy(${xCo},${yCo+1})`);
         let leftID = document.getElementById(`xy(${xCo-1},${yCo})`);
         let rightID = document.getElementById(`xy(${xCo+1},${yCo})`);
-        if ( xCo != 0 && yCo != 0 && (upID == null|| downID == null || leftID == null || rightID == null)){
+        if ( xCo != 0 && xCo != 3 && yCo != 3 && yCo != 0 && (upID == null|| downID == null || leftID == null || rightID == null)){
             return true;
         }
         
-        else if (xCo != 0 && yCo == 0 && (downID == null || leftID == null || rightID == null)) {
+        else if (xCo != 3 && xCo != 0 && yCo == 0 && (downID == null || leftID == null || rightID == null)) {
             return true;
         }
         
@@ -69,11 +66,23 @@ window.onload= function(){
             return true;
         }
         
-        else if (xCo == 0 && yCo != 0 && (upID == null|| downID == null || rightID == null)){
+        else if (xCo == 0 && yCo != 3 && yCo != 0 && (upID == null|| downID == null || rightID == null)){
             return true;
         }
         
         else if (xCo == 3 && yCo != 0 && (upID == null|| downID == null || leftID == null)){
+            return true;
+        }
+
+        else if (xCo == 3 && yCo == 0 &&(downID == null || leftID == null)){
+            return true;
+        }
+
+        else if (xCo == 0 && yCo == 0 && (downID == null || rightID == null)){
+            return true;
+        }
+
+        else if (xCo == 0 && yCo == 3 && (upID == null || rightID == null)){
             return true;
         }
         
