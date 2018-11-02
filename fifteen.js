@@ -4,6 +4,7 @@ window.onload= function(){
     puzzleArea.style.gridTemplateColumns = "repeat(4,auto)";
     let puzzlePiece = puzzleArea.children;
     pieceSet();
+    document.getElementById("shufflebutton").addEventListener("click", shuffle);
     function pieceSet (){
         let i = 0;
         for (let y = 0; y < 4; y++){
@@ -96,5 +97,30 @@ window.onload= function(){
         }
         
         else {return false; }
+    }
+
+    function shuffle(){
+        for (let i = 0; i < 300; i++){
+            let empty = findEmpty();
+            let xCo = parseInt(empty[3]);
+            let yCo = parseInt(empty[5]);
+            let upID = document.getElementById(`xy(${xCo},${yCo-1})`);
+            let downID = document.getElementById(`xy(${xCo},${yCo+1})`);
+            let leftID = document.getElementById(`xy(${xCo-1},${yCo})`);
+            let rightID = document.getElementById(`xy(${xCo+1},${yCo})`); 
+            let move =  Math.floor(Math.random() * 3);
+            if (move == 0 && upID != null){
+                movePiece.call(upID);
+            }
+            else if (move == 1 && downID != null){
+                movePiece.call(downID);
+            }
+            else if (move == 2 && leftID != null){
+                movePiece.call(leftID);
+            }
+            else if (rightID != null){
+                movePiece.call(rightID);
+            }
+        }
     }
 }
