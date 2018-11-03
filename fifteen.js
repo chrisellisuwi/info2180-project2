@@ -155,25 +155,25 @@ window.onload= function(){
     function setBackground(ind){
         if (ind == 0){
             for (let i = 0; i < puzzlePiece.length; i ++){
-                puzzlePiece[i].style.backgroundImage = "url(./img/background.jpg)";
+                puzzlePiece[i].style.backgroundImage = "url(https://scontent.fktp1-1.fna.fbcdn.net/v/t1.0-9/45335630_1108518139322103_5562430518919692288_n.jpg?_nc_cat=108&_nc_ht=scontent.fktp1-1.fna&oh=6634a73d49f04a7faecd0e5deefcba7d&oe=5C4A9C18)";
             }
         }
 
         else if (ind == 1){
             for (let i = 0; i < puzzlePiece.length; i ++){
-                puzzlePiece[i].style.backgroundImage = "url(./img/claptrap.jpeg)";
+                puzzlePiece[i].style.backgroundImage = "url(https://scontent.fktp1-1.fna.fbcdn.net/v/t1.0-9/45351666_1108518159322101_4160483808308625408_n.jpg?_nc_cat=109&_nc_ht=scontent.fktp1-1.fna&oh=e57d28fb42e77ad96dca7c3c3d6edf11&oe=5C87E88F)";
             }
         }
 
         else if (ind == 2){
             for (let i = 0; i < puzzlePiece.length; i ++){
-                puzzlePiece[i].style.backgroundImage = "url(./img/smash.jpg)";
+                puzzlePiece[i].style.backgroundImage = "url(https://scontent.fktp1-1.fna.fbcdn.net/v/t1.0-9/45279136_1108518255988758_3168952000566001664_n.jpg?_nc_cat=111&_nc_ht=scontent.fktp1-1.fna&oh=8d887ec97176048ffc9b113485fe9b88&oe=5C7D8053)";
             }
         }
 
         else {
             for (let i = 0; i < puzzlePiece.length; i ++){
-                puzzlePiece[i].style.backgroundImage = "url(./img/beach.jpg)";
+                puzzlePiece[i].style.backgroundImage = "url(https://scontent.fktp1-1.fna.fbcdn.net/v/t1.0-9/45212702_1108518329322084_4035099543841275904_n.jpg?_nc_cat=106&_nc_ht=scontent.fktp1-1.fna&oh=d29c883ff5b058d5589fa9aa82f696ad&oe=5C80094A)";
                 puzzlePiece[i].style.backgroundSize = 400 + "px " + 400 + "px"; 
             }
         }
