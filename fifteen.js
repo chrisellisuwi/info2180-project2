@@ -155,25 +155,25 @@ window.onload= function(){
     function setBackground(ind){
         if (ind == 0){
             for (let i = 0; i < puzzlePiece.length; i ++){
-                puzzlePiece[i].style.backgroundImage = "url(/img/background.jpg)";
+                puzzlePiece[i].style.backgroundImage = "url(./img/background.jpg)";
             }
         }
 
         else if (ind == 1){
             for (let i = 0; i < puzzlePiece.length; i ++){
-                puzzlePiece[i].style.backgroundImage = "url(/img/claptrap.jpeg)";
+                puzzlePiece[i].style.backgroundImage = "url(./img/claptrap.jpeg)";
             }
         }
 
         else if (ind == 2){
             for (let i = 0; i < puzzlePiece.length; i ++){
-                puzzlePiece[i].style.backgroundImage = "url(/img/smash.jpg)";
+                puzzlePiece[i].style.backgroundImage = "url(./img/smash.jpg)";
             }
         }
 
         else {
             for (let i = 0; i < puzzlePiece.length; i ++){
-                puzzlePiece[i].style.backgroundImage = "url(/img/beach.jpg)";
+                puzzlePiece[i].style.backgroundImage = "url(./img/beach.jpg)";
                 puzzlePiece[i].style.backgroundSize = 400 + "px " + 400 + "px"; 
             }
         }
