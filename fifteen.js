@@ -1,10 +1,14 @@
+// Extra feature: Multiple backgrounds
 window.onload= function(){
     let puzzleArea = document.getElementById("puzzlearea");
     puzzleArea.style.display = "grid";
     puzzleArea.style.gridTemplateColumns = "repeat(4,auto)";
     let puzzlePiece = puzzleArea.children;
     pieceSet();
+    backgrounds();
     document.getElementById("shufflebutton").addEventListener("click", shuffle);
+
+
     function pieceSet (){
         let i = 0;
         for (let y = 0; y < 4; y++){
@@ -26,6 +30,7 @@ window.onload= function(){
                 i++;
             }
         }
+        setBackground(Math.floor(Math.random() * 4));
     }
     
     function findEmpty (){
@@ -123,4 +128,55 @@ window.onload= function(){
             }
         }
     }
+
+    function backgrounds (){
+        let bg1 = document.createElement("button");
+        let bg2 = document.createElement("button");
+        let bg3 = document.createElement("button");
+        let bg4 = document.createElement("button");
+        let bgText1 = document.createTextNode("Background 1");
+        let bgText2 = document.createTextNode("Background 2");
+        let bgText3 = document.createTextNode("Background 3");
+        let bgText4 = document.createTextNode("Background 4");   
+        bg1.appendChild(bgText1);
+        bg2.appendChild(bgText2);
+        bg3.appendChild(bgText3);
+        bg4.appendChild(bgText4);
+        document.getElementById("controls").appendChild(bg1);
+        document.getElementById("controls").appendChild(bg2);
+        document.getElementById("controls").appendChild(bg3);
+        document.getElementById("controls").appendChild(bg4);
+        bg1.addEventListener("click", function(){ setBackground(0)});
+        bg2.addEventListener("click", function(){ setBackground(1)});
+        bg3.addEventListener("click", function(){ setBackground(2)});
+        bg4.addEventListener("click", function(){ setBackground(3)});
+    }
+
+    function setBackground(ind){
+        if (ind == 0){
+            for (let i = 0; i < puzzlePiece.length; i ++){
+                puzzlePiece[i].style.backgroundImage = "url(/img/background.jpg)";
+            }
+        }
+
+        else if (ind == 1){
+            for (let i = 0; i < puzzlePiece.length; i ++){
+                puzzlePiece[i].style.backgroundImage = "url(/img/claptrap.jpeg)";
+            }
+        }
+
+        else if (ind == 2){
+            for (let i = 0; i < puzzlePiece.length; i ++){
+                puzzlePiece[i].style.backgroundImage = "url(/img/smash.jpg)";
+            }
+        }
+
+        else {
+            for (let i = 0; i < puzzlePiece.length; i ++){
+                puzzlePiece[i].style.backgroundImage = "url(/img/beach.jpg)";
+                puzzlePiece[i].style.backgroundSize = 400 + "px " + 400 + "px"; 
+            }
+        }
+    }
+
 }
